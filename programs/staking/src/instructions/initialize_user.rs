@@ -22,11 +22,13 @@ pub struct InitializeUser<'info> {
 }
 
 impl<'info> InitializeUser<'info> {
-    pub fn init_user(&mut self, points: u32, amount_staked: u8) {
+    pub fn init_user(&mut self, bumps: &InitializeUserBumps) -> Result<()>{
         self.user_account.set_inner(UserAccount {
             points: 0,
             amount_staked: 0,
-            bump: &InitializeUserBumps,
+            bump: bumps.user_account,
         });
+
+        Ok(())
     }
 }

@@ -1,3 +1,5 @@
+#![allow(deprecated)]
+#![allow(unexpected_cfgs)]
 pub mod constants;
 pub mod error;
 pub mod instructions;
@@ -15,7 +17,7 @@ declare_id!("BQZDn8p91Ci45wFVT3gSLqqdvp3VMeL3GmYjLd1JBiTy");
 pub mod staking {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        initialize::handler(ctx)
+    pub fn init_config(ctx: Context<InitializeConfig>, points_per_stake: u8, max_stake: u8, freeze_period: u32, bump: u8) -> Result<()> {
+        Ok(())
     }
 }
